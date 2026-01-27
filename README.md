@@ -34,7 +34,7 @@ tirreno is a few-dependency, "low-tech" PHP/PostgreSQL application. After a stra
 `Account takeover` `Credential stuffing` `Content spam` `Account registration` `Fraud prevention` `Insider threat`
 `Bot detection` `Dormant account` `Multi-accounting` `Promo abuse` `API protection` `High-risk regions`
 
-## Build for
+## Built for
 
 * **Self-hosted, internal and legacy apps**: Embed security layer
   to extend your security through audit trails, protect user accounts
