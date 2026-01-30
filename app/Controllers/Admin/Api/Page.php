@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -45,7 +47,10 @@ class Page extends \Tirreno\Controllers\Admin\Base\Page {
         // set these params after processing POST request
         [$isOwner, $apiKeys] = $dataController->getOperatorApiKeysDetails($operatorId);
         $pageParams['IS_OWNER'] = $isOwner;
-        $pageParams['API_KEYS'] = $apiKeys;
+
+        $activeKeyId = \Tirreno\Utils\ApiKeys::getActiveApiKeyId() ?? ($apiKeys[0]['id'] ?? null);
+        $activeKey = array_filter($apiKeys, fn($k) => $k['id'] === $activeKeyId);
+        $pageParams['API_KEYS'] = array_values($activeKey);
         $pageParams['NOT_CHECKED'] = $dataController->getNotCheckedEntitiesForLoggedUser();
         $pageParams['SCHEDULED_FOR_ENRICHMENT'] = $scheduledForEnrichment;
 

@@ -68,7 +68,7 @@ textarea {
     width: 100%;
     height: 70%;
     min-height: 350px;
-    background: url("../images/logo.svg") no-repeat center 100% / 270px auto, linear-gradient(#2b2a39 100%, #2b2a39 100%);
+    background: url("../images/logo.png") no-repeat center 100% / 270px auto, linear-gradient(#2b2a39 100%, #2b2a39 100%);
 }
 
 .front-block {
@@ -1802,8 +1802,64 @@ article.tile .columns {
 
 .menu-logo img {
     position: absolute;
-    left: 1.71rem;
-    bottom: 14px;
+    left: 1rem;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: calc(100% - 2rem);
+    max-height: 28px;
+    width: auto;
+    height: auto;
+}
+
+.application-switcher {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #131220;
+    box-shadow: inset 0 -1px 0 #575675;
+}
+
+.application-switcher .label {
+    color: #90a1b9;
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+}
+
+.application-switcher .select {
+    display: block;
+}
+
+.application-switcher .select select {
+    width: 100%;
+    background-color: #2b2a39;
+    color: #d7e6e1;
+    border: 1px solid #575675;
+    border-radius: 3px;
+    padding: 0.4rem 0.5rem;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.application-switcher .select select:hover {
+    border-color: #90a1b9;
+}
+
+.application-switcher .select select:focus {
+    outline: none;
+    border-color: #25eab5;
+}
+
+.application-switcher .create-app-link {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 12px;
+    color: #25eab5;
+    text-decoration: none;
+}
+
+.application-switcher .create-app-link:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .headline {
@@ -3402,3 +3458,13 @@ img.device-choice {
 .ent { color: #5bcfbb; }
 .mod { color: #f5b944; }
 .cls { color: #f5b944; }
+
+.field.has-addons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.field.has-addons .control.is-expanded {
+    flex-grow: 1;
+    flex-shrink: 1;
+}

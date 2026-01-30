@@ -11,6 +11,37 @@
 
         <div class="columns">
             <div class="column settings-page">
+                <check if="{{ @IS_OWNER }}">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <div class="card-header-title">{{ @AdminApi_applications_title }}</div>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="field has-addons">
+                                    <div class="control is-expanded">
+                                        <input id="current-app-name" class="input" type="text"
+                                               value="{{ @ACTIVE_API_KEY_NAME ?: 'Application ' . @ACTIVE_API_KEY_ID }}"
+                                               placeholder="{{ @AdminApi_current_app_placeholder }}">
+                                    </div>
+                                    <div class="control">
+                                        <button id="rename-app-btn" class="button">{{ @AdminApi_rename_btn }}</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="field has-addons">
+                                    <div class="control is-expanded">
+                                        <input id="new-app-name" class="input" type="text" placeholder="{{ @AdminApi_new_app_placeholder }}">
+                                    </div>
+                                    <div class="control">
+                                        <button id="create-app-btn" class="button is-primary">{{ @ApplicationSwitcher_create_new }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </check>
+
                 <div class="card events-card">
                     <header class="card-header">
                         <div class="card-header-title">{{ @AdminApi_http_endpoint }}<p class="tooltip-info tooltip"title="{{ @AdminApi_table_title_tooltip }}"><include href="images/icons/information.svg" alt='' /></p>

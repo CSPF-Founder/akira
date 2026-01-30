@@ -1,22 +1,21 @@
-# tirreno
+# Akira
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ec30c28f67de476f8b98d2798079bdf0)](https://app.codacy.com/gh/TirrenoTechnologies/tirreno/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tirreno/tirreno?style=flat)](https://hub.docker.com/r/tirreno/tirreno/)
 
 <p align="center">
-    <a href="https://www.tirreno.com/" target="_blank">
-        <img src="https://www.tirreno.com/firstscreen.jpg" alt="tirreno screenshot" />
+    <a href="https://cysecurity.org/" target="_blank">
+        <img src="ui/images/logo.png" alt="Akira" />
     </a>
 </p>
 
-[tirreno](https://www.tirreno.com) is an open-source security framework.
+[Akira](https://cysecurity.org) is an open-source security framework, based on [Tirreno](https://github.com/TirrenoTechnologies/tirreno).
 
-tirreno *[tir.ˈrɛ.no]* helps understand, monitor, and protect your product from threats, fraud, and abuse. While classic cybersecurity focuses on infrastructure and network perimeter, most breaches occur through compromised accounts and application logic abuse that bypasses firewalls, SIEM, WAFs, and other defenses. tirreno detects threats where they actually happen: inside your product.
+Akira helps understand, monitor, and protect your product from threats, fraud, and abuse. While classic cybersecurity focuses on infrastructure and network perimeter, most breaches occur through compromised accounts and application logic abuse that bypasses firewalls, SIEM, WAFs, and other defenses. Akira detects threats where they actually happen: inside your product.
 
-tirreno is a few-dependency, "low-tech" PHP/PostgreSQL application. After a straightforward five-minute installation, you can ingest events through API calls and immediately access a real-time threat dashboard.
+Akira is a few-dependency, "low-tech" PHP/PostgreSQL application. After a straightforward five-minute installation, you can ingest events through API calls and immediately access a real-time threat dashboard.
 
 ## Core components
-* **SDKs & API** Integrate tirreno into any product with SDKs.
+* **SDKs & API** Integrate Akira into any product with SDKs.
   Send events with full context in a few lines of code.
 * **Built-in dashboard** Monitor and understand your product's
   security events from a single interface. Ready for use in minutes.
@@ -52,10 +51,6 @@ tirreno is a few-dependency, "low-tech" PHP/PostgreSQL application. After a stra
 * **API-first applications**: Protect against abuse, rate limiting
   bypasses, scraping, and unauthorized access.
 
-## Live demo
-
-Check out the live demo at [play.tirreno.com](https://play.tirreno.com) (*admin/tirreno*).
-
 ## Requirements
 
 * **PHP**: Version 8.0 to 8.3
@@ -70,41 +65,31 @@ Check out the live demo at [play.tirreno.com](https://play.tirreno.com) (*admin/
 
 ## Quickstart install
 
-1. [Download](https://www.tirreno.com/download.php) the latest version of tirreno (ZIP file).
-2. Extract the tirreno-master.zip file to the location where you want it installed on your web server.
+1. Download the latest version of Akira.
+2. Extract the archive to the location where you want it installed on your web server.
 3. Navigate to `http://your-domain.example/install/index.php` in a browser to launch the installation process.
 4. After the successful installation, delete the `install/` directory and its contents.
 5. Navigate to `http://your-domain.example/signup/` in a browser to create administrator account.
 6. For cron jobs setup insert the following schedule (every 10 minutes) expression with `crontab -e` command or by editing `/var/spool/cron/your-web-server` file:
 
 ```
-*/10 * * * * /usr/bin/php /absolute/path/to/tirreno/index.php /cron
+*/10 * * * * /usr/bin/php /absolute/path/to/akira/index.php /cron
 ```
 
 ## Docker-based installation (optional)
 
-To run tirreno within docker container you may use image published on [dockerhub](https://hub.docker.com/r/tirreno/tirreno).
+To run Akira within docker container you may use the original Tirreno image published on [dockerhub](https://hub.docker.com/r/tirreno/tirreno).
 
 ```bash
 docker pull tirreno/tirreno:latest
 ```
 
-## Using Heroku (optional)
+## Via Composer (optional)
 
-Click [here](https://heroku.com/deploy?template=https://github.com/tirrenotechnologies/tirreno) to launch heroku deployment.
-
-## Via Composer and Packagist (optional)
-
-tirreno is published at Packagist and could be installed with Composer:
+Akira can be installed with Composer using the original Tirreno package:
 
 ```
 composer create-project tirreno/tirreno
-```
-
-or could be pulled into an existing project:
-
-```
-composer require tirreno/tirreno
 ```
 
 ## SDKs
@@ -115,57 +100,43 @@ composer require tirreno/tirreno
 
 ## Documentation
 
-See the [User guide](https://docs.tirreno.com/) for details on how to use tirreno, [Developers documentation](https://github.com/tirrenotechnologies/DEVELOPMENT.md) to customize your integration, [Admin documentation](https://github.com/tirrenotechnologies/ADMIN.md) for installation, maintenance and updates.
+* [Admin documentation](https://github.com/tirrenotechnologies/ADMIN.md)
+* [Developer documentation](https://github.com/tirrenotechnologies/DEVELOPMENT.md)
+* [User guide](https://docs.tirreno.com/)
 
 ## About
 
-tirreno is an open-source security framework that embeds protection against threats, fraud, and abuse right into your product.
+Akira is an open-source security framework that embeds protection against threats, fraud, and abuse right into your product.
 
-The project started as a proprietary system in 2021 and was open-sourced (AGPL) in December 2024.
+Akira is based on [Tirreno](https://github.com/TirrenoTechnologies/tirreno), which started as a proprietary system in 2021 and was open-sourced (AGPL) in December 2024.
 
-Behind tirreno is a blend of extraordinary engineers and professionals, with over a decade of experience in cyberdefence. We solve real people's challenges through love in *ascétique* code and open technologies. tirreno is not VC-motivated. Our inspiration comes from the daily threats posed by organized cybercriminals, driving us to reimagine the place of security in modern applications.
-
-## Why the name tirreno?
-
-Tyrrhenian people may have lived in Tuscany and eastern Switzerland as far back as 800 BC. The term "Tyrrhenian" became more commonly associated with the Etruscans, and it is from them that the Tyrrhenian Sea derives its name, which is still in use today.
-
-According to historical sources, Tyrrhenian people were the first to use trumpets for signaling about coming threats, which was later adopted by Greek and Roman military forces.
-
-While working on the logo, we conducted our own historical study and traced mentions of 'tirreno' back to the 15th-century printed edition of the Vulgate (the Latin Bible). We kept it lowercase to stay true to the original — quite literally, by the book. The tirreno wordmark stands behind the horizon line, as a metaphor of the endless evolutionary cycle of the threat landscape and our commitment to rise over it.
+This fork is maintained by the [Cyber Security and Privacy Foundation](https://cysecurity.org).
 
 ## Links
 
-* [Website](https://www.tirreno.com)
-* [Live demo](https://play.tirreno.com)
-* [Admin documentation](https://github.com/tirrenotechnologies/ADMIN.md)
-* [Developers documentation](https://github.com/tirrenotechnologies/DEVELOPMENT.md)
-* [User guide](https://docs.tirreno.com)
-* [Mattermost community](https://chat.tirreno.com)
+* [Website](https://cysecurity.org)
+* [GitHub Repository](https://github.com/CSPF-Founder/akira)
+* [Original Tirreno Project](https://github.com/TirrenoTechnologies/tirreno)
 
 ## Reporting a security issue
 
-If you've found a security-related issue with tirreno, please email security@tirreno.com. Submitting the issue on GitHub exposes the vulnerability to the public, making it easy to exploit. We will publicly disclose the security issue after it has been resolved.
-
-After receiving a report, tirreno will take the following steps:
-
-* Confirm that the report has been received and is being addressed.
-* Attempt to reproduce the problem and confirm the vulnerability.
-* Release new versions of all the affected packages.
-* Announce the problem prominently in the release notes.
-* If requested, give credit to the reporter.
+If you've found a security-related issue with Akira, please report it responsibly. Submitting the issue on GitHub exposes the vulnerability to the public, making it easy to exploit.
 
 ## License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License (AGPL) as published by the Free Software Foundation version 3.
 
-The name "tirreno" is a registered trademark of tirreno technologies sàrl, and tirreno technologies sàrl hereby declines to grant a trademark license to "tirreno" pursuant to the GNU Affero General Public License version 3 Section 7(e), without a separate agreement with tirreno technologies sàrl.
-
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see [GNU Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.txt).
 
-## Authors
+## Copyright & Attribution
 
-tirreno Copyright (C) 2026 tirreno technologies sàrl, Vaud, Switzerland. (License AGPLv3)
+**Original Work:**
+Copyright (C) Tirreno Technologies Sàrl (https://www.tirreno.com)
+Licensed under AGPL-3.0
+Source: https://github.com/TirrenoTechnologies/tirreno
 
-'t'
+**Modifications:**
+Copyright (C) Cyber Security and Privacy Foundation (https://cysecurity.org)
+Licensed under AGPL-3.0

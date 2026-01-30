@@ -1,6 +1,20 @@
 <div class="sidebar">
     <aside class="menu">
     <include href="templates/parts/logoAdmin.html" />
+        <check if="{{ count(@OPERATOR_API_KEYS) > 1 || @IS_OWNER }}">
+            <div class="application-switcher">
+                <label class="label">{{ @ApplicationSwitcher_label }}</label>
+                <div class="select">
+                    <select id="application-switcher">
+                        <repeat group="{{ @OPERATOR_API_KEYS }}" value="{{ @key }}">
+                            <option value="{{ @key.id }}" {{ @key.id == @ACTIVE_API_KEY_ID ? 'selected' : '' }}>
+                                {{ @key.name ?: 'Application ' . @key.id }}
+                            </option>
+                        </repeat>
+                    </select>
+                </div>
+            </div>
+        </check>
         <ul class="menu-list">
             <li>
                 <set REVIEW_QUEUE_ACTIVE_CLASS="{{ false !== strpos(@CURRENT_PATH, '/review-queue') ? 'is-active': 'is-normal'}}" />
