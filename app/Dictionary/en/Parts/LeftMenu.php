@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -39,7 +41,7 @@ return [
     'LeftMenu_blacklist_link' => 'Blacklist',
     'LeftMenu_logbook_link' => 'Logbook',
     'LeftMenu_admin_docs_link' => 'Admin docs',
-    'LeftMenu_admin_docs_link_url' => 'https://www.tirreno.com/admin-docs.php',
+    'LeftMenu_admin_docs_link_url' => 'https://github.com/tirrenotechnologies/ADMIN.md',
     'LeftMenu_dev_docs_link' => 'Developer docs',
-    'LeftMenu_dev_docs_link_url' => 'https://www.tirreno.com/dev-docs.php',
+    'LeftMenu_dev_docs_link_url' => 'https://github.com/tirrenotechnologies/DEVELOPMENT.md',
 ];

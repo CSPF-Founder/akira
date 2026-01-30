@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -39,6 +41,30 @@ class ApiKeys extends \Tirreno\Models\BaseSql {
         $this->save();
 
         return \Tirreno\Utils\Conversion::intVal($this->id, 0);
+    }
+
+    public function addWithName(array $data): int {
+        $id = $this->add($data);
+
+        if ($id > 0 && isset($data['name']) && $data['name'] !== '') {
+            $this->name = $data['name'];
+            $this->save();
+        }
+
+        return $id;
+    }
+
+    public function updateName(int $keyId, int $operatorId, string $name): bool {
+        $this->getByKeyAndOperatorId($keyId, $operatorId);
+
+        if (!$this->loaded()) {
+            return false;
+        }
+
+        $this->name = $name;
+        $this->save();
+
+        return true;
     }
 
     public function getKeys(int $operatorId): array {

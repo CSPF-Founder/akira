@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -18,6 +20,11 @@ declare(strict_types=1);
 return [
     'AdminApi_page_title' => 'Tracking ID',
     'AdminApi_breadcrumb_title' => 'Api',
+
+    'AdminApi_applications_title' => 'Applications',
+    'AdminApi_current_app_placeholder' => 'Application name',
+    'AdminApi_rename_btn' => 'Rename',
+    'AdminApi_new_app_placeholder' => 'Enter application name...',
 
     'AdminApi_table_title_tooltip' => 'Use the Tracking ID to access the API. Include it in the HTTP header when sending event information to the endpoint, as shown in the examples below.',
 
@@ -61,7 +68,7 @@ return [
     'AdminApi_form_field_token_label' => 'Enrichment key',
     'AdminApi_form_field_token_placeholder' => 'TIR:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=',
     'AdminApi_current_token_tooltip' => 'Current key: ',
-    'AdminApi_form_confirmationMessage' => 'You can use tirreno without a paid subscription or choose to enrich IP data. To learn about enrichment plans and obtain a subscription key, please visit: https://www.tirreno.com/pricing/',
+    'AdminApi_form_confirmationMessage' => 'You can use Akira without a paid subscription or choose to enrich IP data. To learn about enrichment plans and obtain a subscription key, please visit: https://www.tirreno.com/pricing/',
 
     'AdminApi_token_management_title' => 'Enrichment subscription management',
     'AdminApi_token_management_title_tooltip' => 'Usage statistics and subscription key management',

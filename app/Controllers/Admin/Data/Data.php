@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -29,6 +31,61 @@ class Data extends \Tirreno\Controllers\Admin\Base\Data {
         $controller = new \Tirreno\Controllers\Admin\Rules\Navigation();
 
         return $controller->saveRule();
+    }
+
+    public function switchApplication(): array {
+        $f3 = \Base::instance();
+        $apiKeyId = (int) $f3->get('REQUEST.apiKeyId');
+
+        $success = \Tirreno\Utils\ApiKeys::setActiveApiKey($apiKeyId);
+
+        return ['success' => $success];
+    }
+
+    public function createApplication(): array {
+        $f3 = \Base::instance();
+        $name = trim((string) $f3->get('REQUEST.name'));
+        $currentOperator = \Tirreno\Utils\Routes::getCurrentRequestOperator();
+
+        if (!$currentOperator) {
+            return ['success' => false, 'error' => 'Not authenticated'];
+        }
+
+        [$isOwner, $apiKeys] = \Tirreno\Utils\ApiKeys::getOperatorApiKeys($currentOperator->id);
+
+        if (!$isOwner) {
+            return ['success' => false, 'error' => 'Only owners can create applications'];
+        }
+
+        $model = new \Tirreno\Models\ApiKeys();
+        $newKeyId = $model->addWithName([
+            'quote' => time(),
+            'operator_id' => $currentOperator->id,
+            'name' => $name,
+        ]);
+
+        if ($newKeyId > 0) {
+            \Tirreno\Utils\ApiKeys::setActiveApiKey($newKeyId);
+            return ['success' => true, 'apiKeyId' => $newKeyId];
+        }
+
+        return ['success' => false, 'error' => 'Failed to create application'];
+    }
+
+    public function renameApplication(): array {
+        $f3 = \Base::instance();
+        $apiKeyId = (int) ($f3->get('REQUEST.apiKeyId') ?: \Tirreno\Utils\ApiKeys::getActiveApiKeyId());
+        $name = trim((string) $f3->get('REQUEST.name'));
+        $currentOperator = \Tirreno\Utils\Routes::getCurrentRequestOperator();
+
+        if (!$currentOperator) {
+            return ['success' => false, 'error' => 'Not authenticated'];
+        }
+
+        $model = new \Tirreno\Models\ApiKeys();
+        $success = $model->updateName($apiKeyId, $currentOperator->id, $name);
+
+        return ['success' => $success];
     }
 
     public function removeFromBlacklist(): array {

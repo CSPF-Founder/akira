@@ -1,5 +1,6 @@
 import {SearchLine} from '../parts/SearchLine.js?v=2';
 import {Tooltip} from '../parts/Tooltip.js?v=2';
+import {ApplicationSwitcher} from '../parts/ApplicationSwitcher.js?v=2';
 
 export class BasePage {
     constructor(name, single = false) {
@@ -31,6 +32,7 @@ export class BasePage {
 
     initCommonUi() {
         new SearchLine();
+        new ApplicationSwitcher();
 
         document.addEventListener('keyup', e => {
             if (e.key !== '/' || e.ctrlKey || e.metaKey) return;

@@ -1,8 +1,9 @@
 {
     "name": "tirreno/tirreno",
     "type": "project",
-    "description": "Open-source security framework",
+    "description": "Akira ~ Open-source security framework",
     "keywords": [
+        "akira",
         "tirreno",
         "fraud-detection",
         "audit-trail",
@@ -13,12 +14,16 @@
         "application-monitoring"
     ],
     "license": "AGPL-3.0+",
-    "homepage": "https://www.tirreno.com",
+    "homepage": "https://cysecurity.org",
     "authors": [
         {
             "name": "Tirreno Technologies Sàrl",
             "email": "team@tirreno.com",
             "homepage": "https://www.tirreno.com/"
+        },
+        {
+            "name": "Cyber Security and Privacy Foundation",
+            "homepage": "https://cysecurity.org"
         }
     ],
     "config": {

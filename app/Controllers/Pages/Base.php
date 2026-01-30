@@ -1,16 +1,18 @@
 <?php
 
 /**
- * tirreno ~ open-source security framework
+ * Akira ~ open-source security framework
+ * Based on Tirreno (https://github.com/TirrenoTechnologies/tirreno)
  * Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * Modified by Cyber Security and Privacy Foundation (https://cysecurity.org)
  *
  * Licensed under GNU Affero General Public License version 3 of the or any later version.
  * For full copyright and license information, please see the LICENSE
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Tirreno Technologies Sàrl (https://www.tirreno.com)
+ * @copyright     Copyright (c) Tirreno Technologies Sàrl, Cyber Security and Privacy Foundation
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
- * @link          https://www.tirreno.com Tirreno(tm)
+ * @link          https://cysecurity.org Akira
  */
 
 declare(strict_types=1);
@@ -107,6 +109,16 @@ abstract class Base {
 
             $controller = new \Tirreno\Controllers\Admin\Home\Data();
             $params += $controller->getCurrentTime($currentOperator);
+
+            [$isOwner, $apiKeys] = \Tirreno\Utils\ApiKeys::getOperatorApiKeys($currentOperator->id);
+            $params['OPERATOR_API_KEYS'] = $apiKeys;
+            $params['IS_OWNER'] = $isOwner;
+            $params['ACTIVE_API_KEY_ID'] = \Tirreno\Utils\ApiKeys::getActiveApiKeyId() ?? ($apiKeys[0]->id ?? null);
+
+            $activeKeyId = $params['ACTIVE_API_KEY_ID'];
+            $activeKey = array_filter($apiKeys, fn($k) => $k->id === $activeKeyId);
+            $activeKey = reset($activeKey);
+            $params['ACTIVE_API_KEY_NAME'] = $activeKey->name ?? null;
         }
 
         $params['ALLOW_EMAIL_PHONE'] = \Tirreno\Utils\Variables::getEmailPhoneAllowed();
