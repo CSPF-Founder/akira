@@ -103,13 +103,19 @@ Use the **Application** dropdown in the sidebar to switch between applications. 
 */10 * * * * /usr/bin/php /absolute/path/to/akira/index.php /cron
 ```
 
-## Docker-based installation (optional)
-
-To run Akira within docker container you may use the original Tirreno image published on [dockerhub](https://hub.docker.com/r/tirreno/tirreno).
+## Docker Installation
 
 ```bash
-docker pull tirreno/tirreno:latest
+git clone https://github.com/CSPF-Founder/akira-docker.git
+cd akira-docker
+cp .env.example .env
+nano .env  # set a strong database password
+docker compose up -d
 ```
+
+Then visit http://localhost:8585/install to complete setup.
+
+See [akira-docker](https://github.com/CSPF-Founder/akira-docker) for details.
 
 ## SDKs
 
