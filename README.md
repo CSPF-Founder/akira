@@ -28,6 +28,33 @@ Akira is a few-dependency, "low-tech" PHP/PostgreSQL application. After a straig
 * **Field audit trail** Track modifications to important fields,
   including what changed and when to streamline audit and compliance.
 
+## Multi-Application Support
+
+Akira supports tracking multiple applications from a single dashboard. Each application gets its own Tracking ID (API key), and events are completely isolated between applications.
+
+### Adding a New Application
+
+Navigate to the **API** page to manage your applications. Enter a name and click **Add** to create a new application with its own unique Tracking ID.
+
+<p align="center">
+    <img src=".github/screenshots/adding-new-app.png" alt="Adding a new application" width="700" />
+</p>
+
+### Switching Between Applications
+
+Use the **Application** dropdown in the sidebar to switch between applications. Each application has its own isolated data, so switching applications will redirect you to the dashboard.
+
+<p align="center">
+    <img src=".github/screenshots/switching-app.png" alt="Switching between applications" width="700" />
+</p>
+
+> **Note:** When integrating, ensure you use the Tracking ID (API key) that corresponds to the application you want to track. Events are routed based on the API key used, so using the wrong key will send events to the wrong application.
+
+### Use Cases
+* Monitor multiple products or applications from one Akira instance
+* Isolate different client projects or business units
+* Separate development, staging, and production environments
+
 ## Preset rules
 
 `Account takeover` `Credential stuffing` `Content spam` `Account registration` `Fraud prevention` `Insider threat`
@@ -82,14 +109,6 @@ To run Akira within docker container you may use the original Tirreno image publ
 
 ```bash
 docker pull tirreno/tirreno:latest
-```
-
-## Via Composer (optional)
-
-Akira can be installed with Composer using the original Tirreno package:
-
-```
-composer create-project tirreno/tirreno
 ```
 
 ## SDKs

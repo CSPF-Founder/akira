@@ -1,5 +1,6 @@
 import {BaseGrid} from './Base.js?v=2';
 import {
+    applicationNameRender,
     currentPlanRender,
     currentStatusRender,
     currentUsageRender,
@@ -24,24 +25,28 @@ export class UsageStatsGrid extends BaseGrid {
     get columnDefs() {
         const columnDefs = [
             {
-                className: 'subscription-plan-col',
+                className: 'subscription-app-col',
                 targets: 0
             },
             {
-                className: 'subscription-status-col',
+                className: 'subscription-plan-col',
                 targets: 1
             },
             {
-                className: 'subscription-usage-col',
+                className: 'subscription-status-col',
                 targets: 2
             },
             {
-                className: 'billing-date-col',
+                className: 'subscription-usage-col',
                 targets: 3
             },
             {
-                className: 'action-button-col',
+                className: 'billing-date-col',
                 targets: 4
+            },
+            {
+                className: 'action-button-col',
+                targets: 5
             },
         ];
 
@@ -50,6 +55,11 @@ export class UsageStatsGrid extends BaseGrid {
 
     get columns() {
         const columns = [
+            {
+                data: 'name',
+                render: applicationNameRender,
+                orderable: false,
+            },
             {
                 data: 'sub_plan_api_calls',
                 render: currentPlanRender,

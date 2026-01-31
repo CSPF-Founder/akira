@@ -1866,6 +1866,18 @@ const renderMailto = record => {
     return el;
 };
 
+const applicationNameRender = (data, type, record, meta) => {
+    const name = record.name;
+    const id = record.id;
+    const text = (name !== null && name !== undefined && name !== '')
+        ? name
+        : 'Application ' + id;
+
+    const span = document.createElement('span');
+    span.textContent = text;
+    return span;
+};
+
 const currentPlanRender = (data, type, record, _meta) => {
     const value = record.sub_plan_api_calls;
     const text = (value !== null && value !== undefined) ? value + ' API calls' : MIDLINE_HELLIP;
@@ -2127,6 +2139,7 @@ export {
     renderMailto,
 
     //UsageStats
+    applicationNameRender,
     currentPlanRender,
     currentStatusRender,
     currentUsageRender,

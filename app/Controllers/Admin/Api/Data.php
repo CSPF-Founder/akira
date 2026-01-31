@@ -72,6 +72,7 @@ class Data extends \Tirreno\Controllers\Admin\Base\Data {
             $resultKeys[] = [
                 'id'                        => $key->id,
                 'key'                       => $key->key,
+                'name'                      => $key->name,
                 'apiToken'                  => $key->token ?? null,
                 'sub_status'                => $subscriptionStats['status'] ?? null,
                 'sub_calls_left'            => $remaining,

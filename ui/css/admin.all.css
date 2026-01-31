@@ -2617,6 +2617,10 @@ input:is([type="button"], [type="submit"], [type="reset"]):disabled {
     width: 80px;
 }
 
+.subscription-app-col {
+    width: 150px;
+}
+
 .subscription-plan-col {
     width: 170px;
 }

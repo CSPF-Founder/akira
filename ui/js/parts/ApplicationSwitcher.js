@@ -39,7 +39,7 @@ export class ApplicationSwitcher {
             type: 'POST',
             url: `${window.app_base}/admin/switchApplication`,
             data: {token: this.getToken(), apiKeyId: apiKeyId},
-            success: () => window.location.reload(),
+            success: () => window.location.href = window.app_base + '/',
             error: handleAjaxError,
         });
     }

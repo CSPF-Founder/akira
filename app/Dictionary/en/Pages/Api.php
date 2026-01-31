@@ -72,6 +72,7 @@ return [
 
     'AdminApi_token_management_title' => 'Enrichment subscription management',
     'AdminApi_token_management_title_tooltip' => 'Usage statistics and subscription key management',
+    'AdminApi_token_management_app_col' => 'Application',
     'AdminApi_token_management_plan_col' => 'Plan',
     'AdminApi_token_management_subscription_status_col' => 'Status',
     'AdminApi_token_management_last_period_usage_col' => 'Current usage',
