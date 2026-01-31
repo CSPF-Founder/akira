@@ -78,31 +78,6 @@ Use the **Application** dropdown in the sidebar to switch between applications. 
 * **API-first applications**: Protect against abuse, rate limiting
   bypasses, scraping, and unauthorized access.
 
-## Requirements
-
-* **PHP**: Version 8.0 to 8.3
-* **PostgreSQL**: Version 12 or greater
-* **PHP extensions**: `PDO_PGSQL`, `cURL`
-* **HTTP web server**: `Apache` with `mod_rewrite` and `mod_headers` enabled
-* **Operating system**: A Unix-like system is recommended
-* **Minimum hardware requirements**:
-  * **PostgreSQL**: 512 MB RAM (4 GB recommended)
-  * **Application**: 128 MB RAM (1 GB recommended)
-  * **Storage**: Approximately 3 GB PostgreSQL storage per 1 million events
-
-## Quickstart install
-
-1. Download the latest version of Akira.
-2. Extract the archive to the location where you want it installed on your web server.
-3. Navigate to `http://your-domain.example/install/index.php` in a browser to launch the installation process.
-4. After the successful installation, delete the `install/` directory and its contents.
-5. Navigate to `http://your-domain.example/signup/` in a browser to create administrator account.
-6. For cron jobs setup insert the following schedule (every 10 minutes) expression with `crontab -e` command or by editing `/var/spool/cron/your-web-server` file:
-
-```
-*/10 * * * * /usr/bin/php /absolute/path/to/akira/index.php /cron
-```
-
 ## Docker Installation
 
 ```bash
@@ -116,6 +91,33 @@ docker compose up -d
 Then visit http://localhost:8585/install to complete setup.
 
 See [akira-docker](https://github.com/CSPF-Founder/akira-docker) for details.
+
+## Manual Installation
+
+### Requirements
+
+* **PHP**: Version 8.0 to 8.3
+* **PostgreSQL**: Version 12 or greater
+* **PHP extensions**: `PDO_PGSQL`, `cURL`
+* **HTTP web server**: `Apache` with `mod_rewrite` and `mod_headers` enabled
+* **Operating system**: A Unix-like system is recommended
+* **Minimum hardware requirements**:
+  * **PostgreSQL**: 512 MB RAM (4 GB recommended)
+  * **Application**: 128 MB RAM (1 GB recommended)
+  * **Storage**: Approximately 3 GB PostgreSQL storage per 1 million events
+
+### Steps
+
+1. Download the latest version of Akira.
+2. Extract the archive to the location where you want it installed on your web server.
+3. Navigate to `http://your-domain.example/install/index.php` in a browser to launch the installation process.
+4. After the successful installation, delete the `install/` directory and its contents.
+5. Navigate to `http://your-domain.example/signup/` in a browser to create administrator account.
+6. For cron jobs setup insert the following schedule (every 10 minutes) expression with `crontab -e` command or by editing `/var/spool/cron/your-web-server` file:
+
+```
+*/10 * * * * /usr/bin/php /absolute/path/to/akira/index.php /cron
+```
 
 ## SDKs
 
