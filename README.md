@@ -1,6 +1,7 @@
 # Akira
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ec30c28f67de476f8b98d2798079bdf0)](https://app.codacy.com/gh/TirrenoTechnologies/tirreno/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Docker Hub](https://img.shields.io/docker/v/cysecurity/akira?label=Docker%20Hub&logo=docker)](https://hub.docker.com/r/cysecurity/akira)
 
 <p align="center">
     <a href="https://cysecurity.org/" target="_blank">
