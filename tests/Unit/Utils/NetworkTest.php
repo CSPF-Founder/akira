@@ -14,6 +14,7 @@
  * @license       https://opensource.org/licenses/AGPL-3.0 AGPL License
  * @link          https://cysecurity.org Akira
  */
+
 declare(strict_types=1);
 
 namespace Tests\Unit\Utils;
